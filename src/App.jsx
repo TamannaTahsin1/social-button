@@ -26,12 +26,13 @@ const App = () => {
     { icon: <FaPinterest /> },
     { icon: <FaReddit /> },
     { icon: <FaSnapchat /> },
+
   ];
 
   return (
     <div className="bg-lime-500 h-screen">
       <h1 className="text-center text-black text-4xl mb-40">Social Buttons</h1>
-      <div className="menu relative w-280 h-280 flex justify-center items-center">
+      <div className=" relative w-280 h-280 flex justify-center items-center">
         <div
           className={`w-16 h-16 bg-white rounded-full flex justify-center items-center cursor-pointer ${
             isActive ? "active" : ""
@@ -49,7 +50,7 @@ const App = () => {
                     left: "50%",
                     top: "50%",
                     transform: `translate(-50%, -50%) rotate(${
-                      45 * index
+                      (360 / socials.length) * index
                     }deg) translate(120px)`,
                     opacity: 1,
                   }}
