@@ -8,63 +8,97 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background-color: limegreen;
-}
-.menu {
-  position: relative;
-  width: 280px;
-  height: 280px;
-  /* background: rgba(0,0,0,0.1); */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.menu .toggle {
-  position: relative;
-  width: 60px;
-  height: 60px;
   background-color: white;
-  border-radius: 50%;
-  box-shadow: 0 3px 4px rgba(0, 0, 0, 0.15);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
+  color: black;
 }
-.menu .toggle .active {
-  transform: rotate(360deg);
-  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15), 0 0 0 2px #333, 0 0 0 8px #fff;
-}
-.menu li {
-  position: absolute;
-  left: 0;
-  list-style: none;
-  transition: 0.5s;
-  transform: rotate(calc(360deg / 8 * var(--i)));
-  transform-origin: 140px;
-  /* scale: 0; */
-  transition-delay: calc (0.5s * var(--i));
-}
-.menu active li {
-  scale: 1;
-}
-.menu li a {
+.container {
   position: relative;
   display: flex;
-  transform: rotate(calc(360deg / -8 * var(--i)));
-  width: 60px;
-  height: 60px;
-  background: white;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 60px 0;
+  gap: 60px;
+}
+ .box {
+  position: relative;
+  width: 300px;
+  height: 350px;
+  background: rgb(231, 228, 228);
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 50%;
-  font-size: 1.75em;
-  color: var(--clr);
-  box-shadow: 0 3px 4px rgba(0, 0, 0, 0.15);
-  transition: 0.5s;
 }
-.menu li:hover a {
+/*  ?line design*/
+ .box::before {
+  content: "";
+  position: absolute;
+  inset: -10px 60px;
+  border-top: 4px solid red;
+  border-bottom: 4px solid red;
+  z-index: -1;
+  transform: skewY(15deg);
+  transition: 0.5s ease-in-out;
+}
+ .box:hover::before {
+  transform: skewY(0deg);
+  inset: -10px 20px;
+}
+ .box::after {
+  content: "";
+  position: absolute;
+  inset: 60px -10px;
+  border-left: 4px solid red;
+  border-right: 4px solid red;
+  z-index: -1;
+  transform: skew(15deg);
+  transition: 0.5s ease-in-out;
+}
+ .box:hover::after {
+  transform: skew(0deg);
+  inset: 40px -10px;
+}
+ .box .content {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  gap: 20px;
+  padding: 0 20px;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+ .box .content .icon {
+  width: 80px;
+  height: 80px;
+  box-shadow: 0 0 0 2px, 0 0 0 2px red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-size: 2.5em;
-  box-shadow: 0 0 0 2px var(--clr), 0 0 0 6px #fff;
+  color: red;
+  transition: 0.5s ease-in-out;
+}
+ .box:hover .content .icon {
+  color: red;
+  box-shadow: 0 0 0 4px, 0 0 0 300px red;
+}
+ .box .content .text {
+  font-size: 1em;
+  color: red;
+  font-weight: 500;
+  transition: 0.5s ease-in-out;
+}
+ .box:hover .content .text h3 {
+  color: white;
+}
+ .box .content .text p {
+  color: #999;
+  transition: 0.5s ease-in-out;
+}
+ .box:hover .content .text p {
+  color: white;
 }
